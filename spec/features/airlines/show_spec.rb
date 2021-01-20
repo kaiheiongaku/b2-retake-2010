@@ -26,7 +26,7 @@ RSpec.describe 'airline show page' do
       FlightPassenger.create!(flight_id: @flight3.id, passenger_id: @passenger5.id)
       FlightPassenger.create!(flight_id: @flight4.id, passenger_id: @passenger6.id)
 
-      visit "airlines/#{@airline1.id}"
+      visit airline_path(@airline1)
 
       expect(page).to have_content(@passenger1.name)
       expect(page).to have_content(@passenger2.name)
