@@ -32,7 +32,7 @@ RSpec.describe Airline, type: :model do
     end
 
     it 'returns unique passengers for an airline' do
-      binding.pry
+
       expect(@airline1.unique_passengers).to eq([@passenger1, @passenger2, @passenger3])
     end
   end
