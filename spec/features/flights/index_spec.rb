@@ -16,7 +16,7 @@ RSpec.describe 'flight index page' do
       FlightPassenger.create!(flight_id: @flight1.id, passenger_id: @passenger2.id)
       FlightPassenger.create!(flight_id: @flight2.id, passenger_id: @passenger3.id)
 
-      visit "/flights"
+      visit flights_path
     end
 
     it 'shows a list of all flight numbers' do
