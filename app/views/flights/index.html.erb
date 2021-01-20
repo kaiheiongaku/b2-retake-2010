@@ -4,6 +4,7 @@
   <h2>Flight number: <%= flight.number %></h2>
     <% flight.passengers.each do |passenger| %>
       <h3><%= passenger.name %></h3>
+      <h5><%= link_to "Delete #{passenger.name} from this flight.", "/flights/#{flight.id}/passengers/#{passenger.id}", method: :delete %></h5>
     <% end %>
     </section>
 <% end %>
