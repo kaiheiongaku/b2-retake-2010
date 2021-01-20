@@ -34,5 +34,32 @@ RSpec.describe 'flight index page' do
         expect(page).to have_content(@passenger3.name)
       end
     end
+
+    describe 'it can delete a passenger from a flight' do
+      it 'has a delete button next to passengers' do
+
+        within("#flight-#{@flight1.id}") do
+          expect(page).to have_link("Delete #{@passenger1.name} from this flight.")
+          expect(page).to have_link("Delete #{@passenger2.name} from this flight.")
+        end
+      end
+
+      it 'clicking the delete link takes me back to the index page' do
+        within("#flight-#{@flight1.id}") do
+          click_link "Delete #{@passenger1.name} from this flight."
+        end
+
+        expect(current_path).to eq(flights_path)
+      end
+
+      it 'removes that passenger name from the flight' do
+
+        within("#flight-#{@flight1.id}") do
+          click_link "Delete #{@passenger1.name} from this flight."
+        end
+
+        expect(page).not_to have_content(@passenger1.name)
+      end
+    end
   end
 end
