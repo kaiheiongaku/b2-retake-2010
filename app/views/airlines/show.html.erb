@@ -1,0 +1,5 @@
+<h1>Welcome to <%= @airline.name %>'s Show Page</h1>
+
+<% @airline.unique_passengers.each do |passenger| %>
+  <h2><%= passenger.name %></h2>
+<% end %>
